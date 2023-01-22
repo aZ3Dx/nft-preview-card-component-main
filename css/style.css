@@ -1,0 +1,220 @@
+/* Root variables */
+:root {
+    /* Colors */
+    /* Primary */
+    --soft-blue: hsl(215, 51%, 70%);
+    --cyan: hsl(178, 100%, 50%);
+    --cyan-opacity: hsla(178, 100%, 50%, 0.5);
+    /* Neutral */
+    --very-dark-blue-main-bg: hsl(217, 54%, 11%);
+    --very-dark-blue-card-shadow: hsl(216, 58%, 8%);
+    --very-dark-blue-card-bg: hsl(216, 50%, 16%);
+    --very-dark-blue-line: hsl(215, 32%, 27%);
+    --white: hsl(0, 0%, 100%);
+    /* Typography */
+    /* Body Copy */
+    /* --font-size-paragraph: 18px; */
+    /* Font */
+    --font-family: 'Outfit', sans-serif;
+    --font-weight-300: 300;
+    --font-weight-400: 400;
+    --font-weight-600: 600;
+}
+
+/* Basic reset css */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family);
+}
+
+body {
+    background-color: var(--very-dark-blue-main-bg);
+    color: var(--white);
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.main-container {
+    background-color: var(--very-dark-blue-card-bg);
+    max-width: 350px;
+}
+
+.card-container {
+    padding: 1.5rem;
+    border-radius: 20px;
+    box-shadow: 1px 20px 20px 20px var(--very-dark-blue-card-shadow);
+}
+
+.card-container_product-image {
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.card-container_product-image img {
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform .2s ease-in-out;
+}
+
+.card-container_product-image div {
+    position: absolute;
+    display: grid;
+    place-items: center;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    transition: background-color .2s ease-in-out;
+}
+
+.card-container_product-image div img {
+    width: 50px;
+    opacity: 0;
+    transition: opacity .2s ease-in-out;
+}
+
+.card-container_product-image img:hover {
+    transform: scale(1.1);
+    transition: transform .2s ease-in-out;
+}
+
+.card-container_product-image div:hover {
+    background-color: var(--cyan-opacity);
+    transition: background-color .2s ease-in-out;
+}
+
+.card-container_product-image div:hover>img {
+    opacity: 1;
+    transition: all .2s ease-in-out;
+}
+
+.card-container_static-info h1 {
+    cursor: pointer;
+    font-size: 22px;
+    font-weight: var(--font-weight-600);
+    margin: 1.5rem 0 1.2rem 0;
+    transition: color .2s ease-in-out;
+}
+
+.card-container_static-info h1:hover {
+    color: var(--cyan);
+    transition: color .2s ease-in-out;
+}
+
+.card-container_static-info p {
+    font-size: 18px;
+    font-weight: var(--font-weight-300);
+    color: var(--soft-blue);
+    line-height: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.card-container_dynamic-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.card-container_dynamic-info span {
+    display: inline-block;
+}
+
+.card-container_dynamic-info span:first-of-type {
+    font-size: 16px;
+    font-weight: var(--font-weight-600);
+    margin-left: .4rem;
+    color: var(--cyan);
+}
+
+.card-container_dynamic-info span:last-child {
+    font-weight: var(--font-weight-400);
+    margin-left: .3rem;
+    color: var(--soft-blue);
+}
+
+.card-container_dynamic-info .clock-icon {
+    margin-left: auto;
+}
+
+.card-container_divider {
+    border: 1px solid var(--very-dark-blue-line);
+    border-radius: 10px;
+    border-bottom: none;
+    margin-bottom: 1rem;
+}
+
+.card-container_creator {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin-bottom: .5rem;
+}
+
+.card-container_creator img {
+    width: 35px;
+    border: 1px solid var(--white);
+    border-radius: 50%;
+}
+
+.card-container_creator>span {
+    color: var(--soft-blue);
+    margin-left: 1rem;
+}
+
+.card-container_creator span span {
+    cursor: pointer;
+    color: var(--white);
+    transition: color .2s ease-in-out;
+}
+
+.card-container_creator span span:hover {
+    color: var(--cyan);
+    transition: color .2s ease-in-out;
+}
+
+.footer_container {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+}
+
+.footer_container-attr {
+    font-size: 14px;
+    color: var(--cyan-opacity);
+    text-align: center;
+}
+
+.footer_container-attr a {
+    text-decoration: none;
+    color: var(--white);
+}
+
+.footer_container-attr a:hover {
+    color: var(--cyan);
+}
+
+@media (max-width: 375px) {
+    .main-container {
+        max-width: 330px;
+    }
+
+    .card-container_static-info p {
+        font-size: 16px;
+        margin-bottom: 1rem;
+    }
+
+    .card-container_dynamic-info {
+        margin-bottom: 1rem;
+    }
+
+    .card-container_creator {
+        font-size: 15px;
+    }
+}
